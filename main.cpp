@@ -6,14 +6,14 @@ class FileParameter : public Parameter, public NamedObject
 {
 public:
     FileParameter(const char* filename)
-        : NamedObject(filename)
+        : NamedObject(GetFileName(filename))
         , FileData(File::ReadFile(filename))
     {
 
     }
 
     FileParameter(const char* filename, size_t size)
-        : NamedObject(filename)
+        : NamedObject(GetFileName(filename))
         , FileData(File::ReadFile(filename, size))
     {
 
@@ -23,6 +23,17 @@ public:
     vector<char> const& Data() const { return FileData; }
 
 private:
+    static const char* GetFileName(const char* path)
+    {
+        const char* lastSlash = path;
+        for (const char* i = path; *i; ++i)
+        {
+            if (*i == '\\' || *i == '/')
+                lastSlash = i + 1;
+        }
+        return lastSlash;
+    }
+
     vector<char> FileData;
 };
 
