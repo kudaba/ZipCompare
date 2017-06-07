@@ -1,21 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="lz4">
       <UniqueIdentifier>{7e006472-c42b-485e-a017-8951275e7892}</UniqueIdentifier>
     </Filter>
     <Filter Include="snappy">
       <UniqueIdentifier>{6d788d77-b83c-4080-b5dc-a19207adfb1f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lzo">
+      <UniqueIdentifier>{1f7fca87-eb99-4ba9-81f8-b2ad39e6d84a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="minilzo">
+      <UniqueIdentifier>{ebf4c324-09f7-4e99-862a-9b645513156c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zlib">
+      <UniqueIdentifier>{fae211f6-bc0d-49bb-8b1e-c5661f31f11a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="lz4\lib\lz4.c">
       <Filter>lz4</Filter>
     </ClCompile>
@@ -40,6 +42,256 @@
     <ClCompile Include="snappy\snappy-stubs-internal.cc">
       <Filter>snappy</Filter>
     </ClCompile>
+    <ClCompile Include="minilzo\minilzo.c">
+      <Filter>minilzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo2a_d2.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo_crc.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo_init.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo_ptr.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo_str.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo_util.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1_99.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1a.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1a_99.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_2.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_3.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_4.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_5.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_6.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_7.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_8.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_9.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_9x.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_99.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_cc.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_d1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_d2.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_rr.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1b_xx.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_2.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_3.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_4.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_5.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_6.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_7.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_8.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_9.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_9x.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_99.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_cc.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_d1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_d2.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_rr.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1c_xx.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1f_1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1f_9x.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1f_d1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1f_d2.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1x_1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1x_1k.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1x_1l.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1x_1o.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1x_9x.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1x_d1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1x_d2.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1x_d3.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1x_o.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1y_1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1y_9x.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1y_d1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1y_d2.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1y_d3.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1y_o.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1z_9x.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1z_d1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1z_d2.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo1z_d3.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo2a_9x.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo\src\lzo2a_d1.c">
+      <Filter>lzo</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\inftrees.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\adler32.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\compress.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\crc32.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\deflate.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\gzclose.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\gzlib.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\gzread.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\gzwrite.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\infback.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\inffast.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\inflate.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\zutil.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\trees.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\uncompr.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lz4\lib\lz4.h">
@@ -77,6 +329,156 @@
     </ClInclude>
     <ClInclude Include="snappy\snappy-stubs-public.h">
       <Filter>snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\config2a.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\compr1b.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\compr1c.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\config1.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\config1a.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\config1b.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\config1c.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\config1f.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\config1x.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\config1y.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\config1z.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inftrees.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\crc32.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\deflate.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\gzguts.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inffast.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inffixed.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inflate.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="minilzo\lzodefs.h">
+      <Filter>minilzo</Filter>
+    </ClInclude>
+    <ClInclude Include="minilzo\lzoconf.h">
+      <Filter>minilzo</Filter>
+    </ClInclude>
+    <ClInclude Include="minilzo\minilzo.h">
+      <Filter>minilzo</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zconf.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zlib.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zutil.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzo_asm.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\lzo_conf.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\lzo_dict.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\lzo_func.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\lzo_ptr.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\lzo_supp.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzo1.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzo1a.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\lzo1a_de.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzo1b.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\lzo1b_cc.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\lzo1b_de.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzo1c.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\lzo1c_cc.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzo1f.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzo1x.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzo1y.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzo1z.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzo2a.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzoconf.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzodefs.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\include\lzo\lzoutil.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\trees.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\stats1a.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\stats1b.h">
+      <Filter>lzo</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo\src\stats1c.h">
+      <Filter>lzo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
