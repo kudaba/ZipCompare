@@ -8,6 +8,9 @@
     <Filter Include="lz4">
       <UniqueIdentifier>{7e006472-c42b-485e-a017-8951275e7892}</UniqueIdentifier>
     </Filter>
+    <Filter Include="snappy">
+      <UniqueIdentifier>{6d788d77-b83c-4080-b5dc-a19207adfb1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -24,6 +27,18 @@
     </ClCompile>
     <ClCompile Include="lz4\lib\xxhash.c">
       <Filter>lz4</Filter>
+    </ClCompile>
+    <ClCompile Include="snappy\snappy-c.cc">
+      <Filter>snappy</Filter>
+    </ClCompile>
+    <ClCompile Include="snappy\snappy.cc">
+      <Filter>snappy</Filter>
+    </ClCompile>
+    <ClCompile Include="snappy\snappy-sinksource.cc">
+      <Filter>snappy</Filter>
+    </ClCompile>
+    <ClCompile Include="snappy\snappy-stubs-internal.cc">
+      <Filter>snappy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -44,6 +59,24 @@
     </ClInclude>
     <ClInclude Include="lz4\lib\xxhash.h">
       <Filter>lz4</Filter>
+    </ClInclude>
+    <ClInclude Include="snappy\snappy-c.h">
+      <Filter>snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="snappy\snappy.h">
+      <Filter>snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="snappy\snappy-internal.h">
+      <Filter>snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="snappy\snappy-sinksource.h">
+      <Filter>snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="snappy\snappy-stubs-internal.h">
+      <Filter>snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="snappy\snappy-stubs-public.h">
+      <Filter>snappy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -141,6 +141,38 @@ protected:
     }
 };
 
+#include "snappy/snappy-c.h"
+
+class SnappyTest : public CompressionTest
+{
+public:
+    SnappyTest() : CompressionTest("Snappy") {}
+
+protected:
+    vector<char> DoCompress(vector<char> const& sourceData) const override
+    {
+        vector<char> data;
+        data.resize(snappy_max_compressed_length(sourceData.size()));
+
+        size_t result = data.size();
+        snappy_status status = snappy_compress(sourceData.data(), sourceData.size(), data.data(), &result);
+        assert(status == SNAPPY_OK && result >= 0);
+        data.resize(result);
+        return data;
+    }
+
+    vector<char> DoDecompress(vector<char> const& sourceData, size_t originalSize) const override
+    {
+        vector<char> data;
+        data.resize(originalSize);
+
+        size_t result = originalSize;
+        snappy_status status = snappy_uncompress(sourceData.data(), sourceData.size(), data.data(), &result);
+        assert(status == SNAPPY_OK && result == originalSize);
+        return data;
+    }
+};
+
 class ExampleHarness : public TestHarness
 {
     unique_ptr<TestSuite const> TestHarness::CreateTest() const override
@@ -155,6 +187,7 @@ class ExampleHarness : public TestHarness
 
         suite->AddTest(unique_ptr<CodeTest>(new LZ4Test()));
         suite->AddTest(unique_ptr<CodeTest>(new LZ4FastTest()));
+        suite->AddTest(unique_ptr<CodeTest>(new SnappyTest()));
 
         return unique_ptr<TestSuite const>(suite);
     }

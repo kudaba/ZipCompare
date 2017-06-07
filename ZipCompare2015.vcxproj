@@ -173,6 +173,10 @@
     <ClCompile Include="lz4\lib\lz4hc.c" />
     <ClCompile Include="lz4\lib\xxhash.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="snappy\snappy-c.cc" />
+    <ClCompile Include="snappy\snappy-sinksource.cc" />
+    <ClCompile Include="snappy\snappy-stubs-internal.cc" />
+    <ClCompile Include="snappy\snappy.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lz4\lib\lz4.h" />
@@ -181,6 +185,12 @@
     <ClInclude Include="lz4\lib\lz4hc.h" />
     <ClInclude Include="lz4\lib\lz4opt.h" />
     <ClInclude Include="lz4\lib\xxhash.h" />
+    <ClInclude Include="snappy\snappy-c.h" />
+    <ClInclude Include="snappy\snappy-internal.h" />
+    <ClInclude Include="snappy\snappy-sinksource.h" />
+    <ClInclude Include="snappy\snappy-stubs-internal.h" />
+    <ClInclude Include="snappy\snappy-stubs-public.h" />
+    <ClInclude Include="snappy\snappy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
