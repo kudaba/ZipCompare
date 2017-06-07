@@ -20,6 +20,8 @@ public:
     }
 
     string ToString() const override { return GetName(); }
+    __int64 Max() const override { return FileData.size(); }
+
     vector<char> const& Data() const { return FileData; }
 
 private:
@@ -188,6 +190,15 @@ class ExampleHarness : public TestHarness
         suite->AddTest(unique_ptr<CodeTest>(new LZ4Test()));
         suite->AddTest(unique_ptr<CodeTest>(new LZ4FastTest()));
         suite->AddTest(unique_ptr<CodeTest>(new SnappyTest()));
+
+        TestConfig config;
+        config.CustomResult.Sort = PassConfig::Percentage;
+
+        suite->SetPassConfig("compression", config);
+
+        config.CustomResult.Enabled = false;
+        suite->SetPassConfig("decompression", config);
+        suite->SetSummaryConfig(config);
 
         return unique_ptr<TestSuite const>(suite);
     }
