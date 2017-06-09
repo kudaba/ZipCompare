@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf - 8">
+<link rel="stylesheet" type="text/css" href="results.html.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="results.html.js"></script>
+
+<!-- BootStrap css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- TOC -->
+<link rel="stylesheet" href="https://rawgit.com/kudaba/bootstrap-toc/gh-pages/dist/bootstrap-toc.min.css">
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- add after bootstrap.min.js -->
+<script src="https://rawgit.com/kudaba/bootstrap-toc/gh-pages/dist/bootstrap-toc.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<nav id="toc" data-spy="affix" data-toggle="toc" style="margin-top: 30px;"></nav>
+		</div>
+		<div class="col-sm-9">
+	<h1><a href='https://github.com/kudaba/ZipCompare'>ZipCompare</a></h1>
+	<p>Comparison of open source compressions libraries. Using the <a href='https://github.com/kudaba/CodeCompare'>CodeCompare</a> testing harness I ran each compression algorithm over different types of data. The purpose was to test the raw performance of the algorithm taking out any unrelated variables like reading from disk or memory allocation. The primary goal was to find the algorithm that is best suited to game developement so the most important aspect is decompression speed with compressed size at a close second. Here's a summary of the results:</p>
+	<h2>Summary</h2>
+	<div class="chart">
+		<canvas id="SummaryResult" width="100" height="100"></canvas>
+	</div>
+	<h2>Compression</h2>
+	<p> For the compression part of the test we tracked the resulting compresions ratio, the compressions speed and any memory allocated.</p>
+	
+	<table>
+		<tr>
+			<td>
+			<div class="chart">
+				<canvas id="compressionResult" width="100" height="100"></canvas>
+			</div></td>
+		</tr><tr>
+			<td>
+			<div class="chart">
+				<canvas id="compressionPerformance" width="100" height="100"></canvas>
+			</div></td>
+			<td>
+			<div class="chart">
+				<canvas id="compressionMemory" width="100" height="100"></canvas>
+			</div></td>
+		</tr>
+	</table>
+	
+	<h2>Decompression</h2>
+	<p>For the decompression part of the test we only track performance and memory allocations.</p>
+	
+	<table>
+		<tr>
+			<td>
+			<div class="chart">
+				<canvas id="decompressionPerformance" width="100" height="100"></canvas>
+			</div></td>
+			<td>
+			<div class="chart">
+				<canvas id="decompressionMemory" width="100" height="100"></canvas>
+			</div></td>
+		</tr>
+	</table>
+		</div>
+	</div>
+</div>
+<script>
+Chart.defaults.global.title.display = false;
+
+parameters = ["csv", "jpeg", "json", "mp3", "png", "sql", "text", "xml"];
+var params = parameters.slice(0);
+params.push("Average");
+CreateChart({
+	test: "Summary: Result",
+	id: "SummaryResult",
+	parameters: params,
+	passes: [
+		{
+			name: "LZO1C-3",
+			results: [0.49719, 0.256429, 0.31481, 0.203952, 0.209095, 0.302952, 0.390857, 0.263905, 0.304899],
+			color: "rgba(46,134,3,1)"
+		},
+		{
+			name: "Snappy",
+			results: [0.447238, 0.14081, 0.351381, 0.113143, 0.154429, 0.334762, 0.347143, 0.339, 0.278488],
+			color: "rgba(94,20,130,1)"
+		},
+		{
+			name: "lz4",
+			results: [0.00147619, 0.238143, 0.166238, 0.199571, 0.223952, 0.144143, 0.210143, 0.153667, 0.167167],
+			color: "rgba(7,114,140,1)"
+		},
+		{
+			name: "lz4Fast",
+			results: [0.000666667, 0.238143, 0.238095, 0.215667, 0.238095, 0.238095, 0.238095, 0.238095, 0.205619],
+			color: "rgba(182,9,88,1)"
+		},
+		{
+			name: "miniLZO",
+			results: [0.446333, 0.239048, 0.314571, 0.239714, 0.245143, 0.293238, 0.458333, 0.274524, 0.313863],
+			color: "rgba(69,224,133,1)"
+		},
+		{
+			name: "zlib",
+			results: [0.914238, 0.761905, 0.761905, 0.761905, 0.761905, 0.761905, 0.761905, 0.761905, 0.780946],
+			color: "rgba(144,84,46,1)"
+		}
+	]
+});
+
+Chart.defaults.global.title.display = true;
+
+CreateChart({
+	test: "compression: Result",
+	id: "compressionResult",
+	parameters: parameters,
+	max: 1.0,
+	passes: [
+		{
+			name: "LZO1C-3",
+			results: [0.657995, 1.00284, 0.368334, 1.0019, 1.00093, 0.293803, 0.451374, 0.285247],
+			color: "rgba(46,134,3,1)"
+		},
+		{
+			name: "Snappy",
+			results: [0.683727, 0.999439, 0.386338, 0.999745, 0.999547, 0.323081, 0.48911, 0.296694],
+			color: "rgba(94,20,130,1)"
+		},
+		{
+			name: "lz4",
+			results: [0.0127355, 1.00332, 0.363358, 1.00258, 1.00297, 0.289124, 0.51224, 0.29166],
+			color: "rgba(7,114,140,1)"
+		},
+		{
+			name: "lz4Fast",
+			results: [0.0146442, 1.00338, 0.437721, 1.003, 1.00367, 0.374462, 0.582414, 0.355119],
+			color: "rgba(182,9,88,1)"
+		},
+		{
+			name: "miniLZO",
+			results: [0.68331, 1.0033, 0.376327, 1.00355, 1.00359, 0.298295, 0.491147, 0.292936],
+			color: "rgba(69,224,133,1)"
+		},
+		{
+			name: "zlib",
+			results: [0.442094, 0.996496, 0.244908, 0.998017, 0.995996, 0.201547, 0.29736, 0.187404],
+			color: "rgba(144,84,46,1)"
+		}
+	]
+});
+CreateChart({
+	test: "compression: Performance",
+	id: "compressionPerformance",
+	parameters: parameters,
+	type: 'logarithmic',
+	passes: [
+		{
+			name: "LZO1C-3",
+			results: [164438, 411298, 96792, 233228, 64408, 76506, 82906, 55586],
+			color: "rgba(46,134,3,1)"
+		},
+		{
+			name: "Snappy",
+			results: [102021, 5959, 85778, 2899, 1098, 55439, 84307, 48029],
+			color: "rgba(94,20,130,1)"
+		},
+		{
+			name: "lz4",
+			results: [3986, 6672, 50236, 10752, 1508, 37140, 57226, 27212],
+			color: "rgba(7,114,140,1)"
+		},
+		{
+			name: "lz4Fast",
+			results: [3673, 6707, 43611, 7829, 960, 25990, 44583, 24715],
+			color: "rgba(182,9,88,1)"
+		},
+		{
+			name: "miniLZO",
+			results: [66430, 7172, 50727, 3981, 1116, 35472, 49980, 25145],
+			color: "rgba(69,224,133,1)"
+		},
+		{
+			name: "zlib",
+			results: [1145610, 1224033, 726799, 684251, 167477, 546664, 943940, 329731],
+			color: "rgba(144,84,46,1)"
+		}
+	]
+});
+CreateChart({
+	test: "compression: Memory",
+	id: "compressionMemory",
+	parameters: parameters,
+	passes: [
+		{
+			name: "LZO1C-3",
+			results: [0, 0, 0, 0, 0, 0, 0, 0],
+			color: "rgba(46,134,3,1)"
+		},
+		{
+			name: "Snappy",
+			results: [109258, 109258, 109258, 109258, 109258, 109258, 109258, 109258],
+			color: "rgba(94,20,130,1)"
+		},
+		{
+			name: "lz4",
+			results: [0, 0, 0, 0, 0, 0, 0, 0],
+			color: "rgba(7,114,140,1)"
+		},
+		{
+			name: "lz4Fast",
+			results: [0, 0, 0, 0, 0, 0, 0, 0],
+			color: "rgba(182,9,88,1)"
+		},
+		{
+			name: "miniLZO",
+			results: [0, 0, 0, 0, 0, 0, 0, 0],
+			color: "rgba(69,224,133,1)"
+		},
+		{
+			name: "zlib",
+			results: [267972, 267972, 267972, 267972, 267972, 267972, 267972, 267972],
+			color: "rgba(144,84,46,1)"
+		}
+	]
+});
+CreateChart({
+	test: "decompression: Performance",
+	id: "decompressionPerformance",
+	parameters: parameters,
+	type: 'logarithmic',
+	passes: [
+		{
+			name: "LZO1C-3",
+			results: [46742, 5024, 28612, 2622, 788, 21480, 32845, 13769],
+			color: "rgba(46,134,3,1)"
+		},
+		{
+			name: "Snappy",
+			results: [30358, 3403, 25782, 1852, 446, 17446, 22415, 15135],
+			color: "rgba(94,20,130,1)"
+		},
+		{
+			name: "lz4",
+			results: [1953, 4038, 11861, 2203, 488, 8009, 11943, 7023],
+			color: "rgba(7,114,140,1)"
+		},
+		{
+			name: "lz4Fast",
+			results: [1689, 3303, 9507, 1987, 317, 6003, 9261, 6723],
+			color: "rgba(182,9,88,1)"
+		},
+		{
+			name: "miniLZO",
+			results: [37619, 4507, 28159, 2098, 546, 20703, 36290, 14332],
+			color: "rgba(69,224,133,1)"
+		},
+		{
+			name: "zlib",
+			results: [85863, 157482, 68175, 79510, 11705, 50210, 52753, 35790],
+			color: "rgba(144,84,46,1)"
+		}
+	]
+});
+CreateChart({
+	test: "decompression: Memory",
+	id: "decompressionMemory",
+	parameters: parameters,
+	passes: [
+		{
+			name: "LZO1C-3",
+			results: [0, 0, 0, 0, 0, 0, 0, 0],
+			color: "rgba(46,134,3,1)"
+		},
+		{
+			name: "Snappy",
+			results: [0, 0, 0, 0, 0, 0, 0, 0],
+			color: "rgba(94,20,130,1)"
+		},
+		{
+			name: "lz4",
+			results: [0, 0, 0, 0, 0, 0, 0, 0],
+			color: "rgba(7,114,140,1)"
+		},
+		{
+			name: "lz4Fast",
+			results: [0, 0, 0, 0, 0, 0, 0, 0],
+			color: "rgba(182,9,88,1)"
+		},
+		{
+			name: "miniLZO",
+			results: [0, 0, 0, 0, 0, 0, 0, 0],
+			color: "rgba(69,224,133,1)"
+		},
+		{
+			name: "zlib",
+			results: [7120, 7120, 7120, 7120, 7120, 7120, 7120, 7120],
+			color: "rgba(144,84,46,1)"
+		}
+	]
+});
+</script>
+</body>
+</html>
