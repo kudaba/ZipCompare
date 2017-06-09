@@ -27,7 +27,7 @@
 		<div class="col-sm-9">
 	<h1><a href='https://github.com/kudaba/ZipCompare'>ZipCompare</a></h1>
 	<p>Comparison of open source compressions libraries. Using the <a href='https://github.com/kudaba/CodeCompare'>CodeCompare</a> testing harness I ran each compression algorithm over different types of data. The purpose was to test the raw performance of the algorithm taking out any unrelated variables like reading from disk or memory allocation. The primary goal was to find the algorithm that is best suited to game developement so the most important aspect is decompression speed with compressed size at a close second. Here's a summary of the results:</p>
-	<h2>Summary</h2>
+	<h2>Summary (lower is better)</h2>
 	<div class="chart">
 		<canvas id="SummaryResult" width="100" height="100"></canvas>
 	</div>
@@ -67,6 +67,16 @@
 			</div></td>
 		</tr>
 	</table>
+<div style="height:100vh">
+	<h2>Reference</h2>
+	<p>The following compression algorithms were used:</p>
+	<ul>
+		<li><a href="https://github.com/lz4/lz4">lz4 (1.7.5+)</a> - Normal and fast mode</li>
+		<li><a href="https://github.com/google/snappy">Snappy (1.1.4+)</a></li>
+		<li><a href="http://www.oberhumer.com/opensource/lzo/">LZO / miniLZO (2.10)</a></li>
+		<li><a href="https://zlib.net">zlib (1.2.11)</a></li>
+	</ul>
+</div>
 		</div>
 	</div>
 </div>
