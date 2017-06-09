@@ -346,7 +346,9 @@ class ZipHarness : public TestHarness
 
         config.CustomResult.Enabled = false;
         suite->SetPassConfig("decompression", config);
-        suite->SetSummaryConfig(config);
+
+        suite->SetPassWeights("compression", TestWeight(0.5f, 0.2f, 0.2f));
+        suite->SetPassWeights("decompression", TestWeight(0.0f, 1.0f, 0.2f));
 
         return unique_ptr<TestSuite const>(suite);
     }
